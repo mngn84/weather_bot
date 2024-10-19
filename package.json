@@ -4,7 +4,7 @@
   "description": "",
   "main": "bot.js",
   "scripts": {
-    "start": "node bot.js"
+    "start": "node server.js && node bot.js"
   },
   "keywords": [],
   "author": "mngn",
@@ -12,7 +12,8 @@
   "dependencies": {
     "axios": "^1.7.7",
     "dotenv": "^16.4.5",
+    "express": "^4.21.1",
     "node-telegram-bot-api": "^0.66.0"
   },
-  "type": "module" 
+  "type": "module"
 }

@@ -4,7 +4,11 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const bot = new TelegramBot(process.env.BOT_TOKEN, { polling: true });
+export const bot = new TelegramBot(process.env.BOT_TOKEN, { webHook: true });
+bot.setWebHook(`${process.env.APP_URL}/bot${process.env.BOT_TOKEN}`);
+
+console.log('Bot is running...');
+
 const cachedCoords = new Map();
 
 bot.on('message', (msg) => {
@@ -57,6 +61,7 @@ const getCoords = async (msg) => {
                 appid: process.env.API_KEY,
             },
         });
+        
         const { lat, lon } = geoResponse.data[0];
         return { lat, lon };
     } catch (error) {
